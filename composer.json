@@ -19,7 +19,7 @@
 	},
     "autoload": {
         "psr-4": {
-            "ZN\\": ""
+            "ZN\\Cache\\": ""
         }
     },
 	"minimum-stability": "dev"
