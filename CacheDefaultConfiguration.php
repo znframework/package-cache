@@ -10,7 +10,7 @@
  */
 
 /**
- * Default Cookie Configuration
+ * Default Configuration
  * 
  * Enabled when the configuration file can not be accessed.
  */

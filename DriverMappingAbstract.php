@@ -25,7 +25,8 @@ abstract class DriverMappingAbstract
      */
     public function __construct()
     {
-        $this->config = Config::default(new CacheDefaultConfiguration)::get('Storage', 'cache');
+        $this->config = Config::default('ZN\Cache\CacheDefaultConfiguration')
+                              ::get('Storage', 'cache');
     }
 
     /**
