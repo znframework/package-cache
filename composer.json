@@ -12,10 +12,10 @@
     ],
     "require": {
         "php": ">=7.0.0",
-        "znframework/package-zerocore": "5.5.*",
-        "znframework/package-filesystem": "5.5.*",
-        "znframework/package-compression": "5.5.*",
-        "znframework/package-buffering": "5.5.*"
+        "znframework/package-zerocore": "5.6.*",
+        "znframework/package-filesystem": "5.6.*",
+        "znframework/package-compression": "5.6.*",
+        "znframework/package-buffering": "5.6.*"
 	},
     "autoload": {
         "psr-4": {
