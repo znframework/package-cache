@@ -110,7 +110,7 @@ class ApcDriver extends DriverMappingAbstract
      */
     public function clean()
     {
-        return $this->apc('clear_cache', 'user');
+        return $this->apc('clear_cache');
     }
 
     /**
@@ -122,7 +122,7 @@ class ApcDriver extends DriverMappingAbstract
      */
     public function info($type = NULL)
     {
-        return $this->apc('cache_info', $type);
+        return $this->apc('cache_info', $type) ?: [];
     }
 
     /**
