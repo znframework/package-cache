@@ -71,7 +71,7 @@ class RedisDriver extends DriverMappingAbstract
             throw new ConnectionRefusedException(NULL, $e->getMessage());
         }
 
-        if ( ! $this->redis->auth($config['password']) )
+        if ( $config['password'] && ! $this->redis->auth($config['password']) )
         {
             throw new AuthenticationFailedException;
         }
