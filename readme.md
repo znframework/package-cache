@@ -1,3 +1,14 @@
+<p align="center">
+<a href="https://packagist.org/packages/znframework/package-cache" rel="nofollow">
+	<img src="https://img.shields.io/packagist/dt/znframework/package-cache?style=flat-square" style="max-width:100%;"></a>
+<a href="//packagist.org/packages/znframework/package-cache" rel="nofollow">
+	<img src="https://img.shields.io/github/v/release/znframework/package-cache?style=flat-square&color=00BFFF" style="max-width:100%;"></a>
+<a href="//packagist.org/packages/znframework/package-cache" rel="nofollow">
+	<img src="https://img.shields.io/github/release-date/znframework/package-cache?style=flat-square" style="max-width:100%;"></a>
+<a href="//packagist.org/packages/znframework/package-cache" rel="nofollow">
+	<img src="https://img.shields.io/github/license/znframework/package-cache?style=flat-square" style="max-width:100%;"></a>
+</p>
+
 <h2>ZN Framework Cache Package</h2>
 <p>
 Follow the steps below for installation and use.
