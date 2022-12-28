@@ -24,6 +24,14 @@ class FileDriver extends DriverMappingAbstract
     protected $path = STORAGE_DIR . 'Cache/';
 
     /**
+     * Keeps compression class
+     * 
+     * @var object
+     */
+    protected $compress;
+
+
+    /**
      * Magic constructor
      * 
      * @param void
@@ -90,14 +98,14 @@ class FileDriver extends DriverMappingAbstract
             'data'  => $var
         ];
 
-        if( file_put_contents($this->path.$key, serialize($datas)) )
+        if( file_put_contents($pathKey = $this->path . $key, serialize($datas)) )
         {
-            chmod($this->path.$key, 0640);
+            chmod($pathKey, 0640);
 
             return true;
         }
 
-        return false;
+        return false; // @codeCoverageIgnore
     }
 
     /**
@@ -135,7 +143,7 @@ class FileDriver extends DriverMappingAbstract
         }
         elseif( ! is_numeric($data['data']) )
         {
-            return false;
+            return false; // @codeCoverageIgnore
         }
 
         $newValue = $data['data'] + $increment;
@@ -163,7 +171,7 @@ class FileDriver extends DriverMappingAbstract
         }
         elseif( ! is_numeric($data['data']) )
         {
-            return false;
+            return false; // @codeCoverageIgnore
         }
 
         $newValue = $data['data'] - $decrement;
@@ -223,7 +231,7 @@ class FileDriver extends DriverMappingAbstract
     {
         if( ! is_dir($this->path) )
         {
-            mkdir($this->path, 0755);
+            mkdir($this->path, 0755); // @codeCoverageIgnore
         }
     }
 
@@ -236,18 +244,18 @@ class FileDriver extends DriverMappingAbstract
      */
     protected function selectCacheKey($key)
     {
-        if( ! file_exists($this->path.$key) )
+        if( ! file_exists($pathKey = $this->path . $key) )
         {
             return false;
         }
 
-        $data = unserialize(file_get_contents($this->path.$key));
+        $data = unserialize(file_get_contents($pathKey));
 
         if( $data['ttl'] > 0 && time() > $data['time'] + $data['ttl'] )
         {
-            unlink($this->path.$key);
+            unlink($pathKey); // @codeCoverageIgnore
 
-            return false;
+            return false; // @codeCoverageIgnore
         }
 
         return $data;

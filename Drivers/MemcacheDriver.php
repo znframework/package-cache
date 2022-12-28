@@ -15,8 +15,18 @@ use ZN\ErrorHandling\Errors;
 use ZN\Cache\DriverMappingAbstract;
 use ZN\Cache\Exception\ConnectionRefusedException;
 
+/**
+ * @codeCoverageIgnore
+ */
 class MemcacheDriver extends DriverMappingAbstract
 {
+    /**
+     * Keeps memcahce class
+     * 
+     * @param object
+     */
+    protected $memcache;
+
     /**
      * Magic constructor
      * 
@@ -40,7 +50,7 @@ class MemcacheDriver extends DriverMappingAbstract
         
         if( ! $this->memcache->addServer($config['host'], $config['port'], $config['weight']) )
         {
-            throw new ConnectionRefusedException(NULL, 'Memcached connection error!');
+            throw new ConnectionRefusedException(NULL, 'Memcached connection error!'); // @codeCoverageIgnore
         }
     }
 

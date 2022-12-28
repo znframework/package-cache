@@ -17,6 +17,9 @@ use ZN\Cache\Exception\ConnectionRefusedException;
 use ZN\Cache\Exception\AuthenticationFailedException;
 use ZN\Cache\DriverMappingAbstract;
 
+/**
+ * @codeCoverageIgnore
+ */
 class RedisDriver extends DriverMappingAbstract
 {
     /**
@@ -25,20 +28,6 @@ class RedisDriver extends DriverMappingAbstract
      * @var Redis
      */
     protected $redis;
-
-    /**
-     * Serialized data
-     * 
-     * @var array
-     */
-    protected $serialized = [];
-
-    /**
-     * Private redis members key
-     * 
-     * @var string
-     */
-    private $sMembersKey = 'ZNRedisSerialized';
 
     /**
      * Magic constructor
@@ -73,7 +62,7 @@ class RedisDriver extends DriverMappingAbstract
 
         if ( $config['password'] && ! $this->redis->auth($config['password']) )
         {
-            throw new AuthenticationFailedException; 
+            throw new AuthenticationFailedException; // @codeCoverageIgnore
         }
     }
 
